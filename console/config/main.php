@@ -11,15 +11,21 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'console\controllers',
+    'modules' => [
+        'user-management' => [
+            'class' => 'isxoq\modules\user-management\UserManagement\UserManagementModule',
+            'controllerNamespace' => 'isxoq\user-management\modules\UserManagement\controllers', // To prevent yii help from crashing
+        ],
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'controllerMap' => [
         'fixture' => [
             'class' => 'yii\console\controllers\FixtureController',
             'namespace' => 'common\fixtures',
-          ],
+        ],
     ],
     'components' => [
         'authManager' => [
