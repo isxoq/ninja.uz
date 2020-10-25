@@ -6,6 +6,7 @@ use yii\helpers\Html;
 /** @var string $content */
 
 isxoq\assets\adminlte\AdminLteAsset::register($this);
+isxoq\assets\fontawesome\FontAwesomeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

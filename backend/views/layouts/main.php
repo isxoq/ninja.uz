@@ -17,16 +17,11 @@ if (Yii::$app->controller->action->id === 'login') {
     );
 } else {
 
-    if (class_exists('backend\assets\AppAsset')) {
-        backend\assets\AppAsset::register($this);
-    } else {
-        app\assets\AppAsset::register($this);
-    }
 
-    dmstr\adminlte\web\AdminLteAsset::register($this);
-    dmstr\adminlte\web\FontAwesomeAsset::register($this);
+    isxoq\assets\adminlte\AdminLteAsset::register($this);
+    isxoq\assets\fontawesome\FontAwesomeAsset::register($this);
 
-    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@isxoq/assets/adminlte');
     ?>
     <?php $this->beginPage() ?>
     <!DOCTYPE html>
