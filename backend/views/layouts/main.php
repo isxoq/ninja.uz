@@ -1,32 +1,36 @@
 <?php
-
 use yii\helpers\Html;
 
-/** @var \yii\web\View $this */
-/** @var string $content */
+Yii::$app->name = Yii::t('app',"Administrator");
 
-$this->registerCssFile('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
-if (Yii::$app->controller->action->id === 'login') {
-    /**
-     * Do not use this code in your template. Remove it.
-     * Instead, use the code  $this->layout = '//main-login'; in your controller.
-     */
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+
+if (Yii::$app->controller->action->id === 'login') { 
+/**
+ * Do not use this code in your template. Remove it. 
+ * Instead, use the code  $this->layout = '//main-login'; in your controller.
+ */
     echo $this->render(
         'main-login',
         ['content' => $content]
     );
 } else {
 
+    if (class_exists('backend\assets\AppAsset')) {
+        backend\assets\AppAsset::register($this);
+    } else {
+        app\assets\AppAsset::register($this);
+    }
 
     isxoq\assets\adminlte\AdminLteAsset::register($this);
-    isxoq\assets\fontawesome\FontAwesomeAsset::register($this);
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@isxoq/assets/adminlte');
     ?>
     <?php $this->beginPage() ?>
     <!DOCTYPE html>
     <html lang="<?= Yii::$app->language ?>">
-
     <head>
         <meta charset="<?= Yii::$app->charset ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +38,6 @@ if (Yii::$app->controller->action->id === 'login') {
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-
     <body class="hold-transition skin-blue sidebar-mini">
     <?php $this->beginBody() ?>
     <div class="wrapper">
@@ -59,7 +62,6 @@ if (Yii::$app->controller->action->id === 'login') {
 
     <?php $this->endBody() ?>
     </body>
-
     </html>
     <?php $this->endPage() ?>
 <?php } ?>

@@ -11,8 +11,33 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+            // enter optional module parameters below - only if you need to
+            // use your own export download action or custom translation
+            // message source
+            // 'downloadAction' => 'gridview/export/download',
+            // 'i18n' => []
+        ],
+        'translater' => [
+            'class' => 'isxoq\modules\translationmanager\TranslationManager'
+        ]
+    ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
+        ],
+
+
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                ],
+            ],
+        ],
+
         'request' => [
             'baseUrl' => '/admin',
             'csrfParam' => '_csrf-backend',

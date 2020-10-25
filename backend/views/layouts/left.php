@@ -1,55 +1,43 @@
-<?php
+<aside class="main-sidebar">
 
-/** @var \yii\web\View $this */
-/** @var string $directoryAsset */
-?>
+    <section class="sidebar">
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <?= \yii\helpers\Html::a('<img class="brand-image img-circle elevation-3" src="' . ($directoryAsset . '/img/AdminLTELogo.png') . '" alt="APP"><span class="brand-text font-weight-light">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'brand-link']) ?>
-    <div class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+            </div>
+            <div class="pull-left info">
+                <p><?= Yii::$app->user->identity->username ?></p>
 
-        <nav class="mt-2">
-            <?= isxoq\assets\adminlte\widgets\Menu::widget(
-                [
-                    'options' => ['class' => 'nav nav-pills nav-sidebar flex-column', 'data-widget' => 'treeview'],
-                    'items' => [
-                        ['label' => 'Menu Yii2', 'header' => true],
-                        ['label' => 'Gii', 'iconType' => 'far', 'icon' => 'file-code', 'url' => ['/gii']],
-                        ['label' => 'Debug', 'icon' => 'tachometer-alt', 'url' => ['/debug']],
-                        ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                        [
-                            'label' => 'Some tools',
-                            'icon' => 'share',
-                            'url' => '#',
-                            'items' => [
-                                ['label' => 'Gii', 'iconType' => 'far', 'icon' => 'file-code', 'url' => ['/gii'],],
-                                ['label' => 'Debug', 'icon' => 'tachometer-alt', 'url' => ['/debug'],],
-                                [
-                                    'label' => 'Level One',
-                                    'iconType' => 'far',
-                                    'icon' => 'circle',
-                                    'url' => '#',
-                                    'items' => [
-                                        ['label' => 'Level Two', 'iconType' => 'far', 'icon' => 'dot-circle', 'url' => '#',],
-                                        [
-                                            'label' => 'Level Two',
-                                            'iconType' => 'far',
-                                            'icon' => 'dot-circle',
-                                            'url' => '#',
-                                            'items' => [
-                                                ['label' => 'Level Three', 'icon' => 'dot-circle', 'url' => '#',],
-                                                ['label' => 'Level Three', 'icon' => 'dot-circle', 'url' => '#',],
-                                            ],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ]
-            ) ?>
-        </nav>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
 
-    </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                <span class="input-group-btn">
+                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+
+        <?= isxoq\assets\adminlte\widgets\Menu::widget(
+            [
+                'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
+                'items' => [
+                    ['label' => 'Menu', 'options' => ['class' => 'header']],
+                    ['label' => Yii::t('app', 'Users'), 'icon' => 'fa fa-user', 'url' => ['/bot-users']],
+
+
+                ],
+            ]
+        ) ?>
+
+    </section>
 
 </aside>
