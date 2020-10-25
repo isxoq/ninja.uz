@@ -31,7 +31,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
                 'items' => [
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
-                    ['label' => Yii::t('app', 'Users'), 'icon' => 'fa fa-user', 'url' => ['/bot-users']],
+                    ['label' => Yii::t('app', 'User Management'), 'icon' => 'fa fa-user', 'url' => ['/site/index']],
 
 
                 ],
